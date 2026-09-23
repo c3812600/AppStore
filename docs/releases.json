@@ -16,7 +16,7 @@
       "platform": "Windows x64",
       "tech": "Python · Flask · MSIX",
       "repo": "https://github.com/c3812600/ControlCommand",
-      "docs_note": "旧版安装包仍可通过原链接下载；后续可迁到 R2。",
+      "docs_note": "MSIX 从 releases.lonk.vip 下载；appinstaller / 证书 / 安装脚本仍在 download.lonk.vip/updates。",
       "features": [
         "可视化场景宏编辑，多设备混合指令",
         "定时任务：工作日 / 节假日 / 每日 / 每周",
@@ -49,7 +49,7 @@
               "type": "installer",
               "label": "最新 .msix",
               "size": "最新构建",
-              "url": "https://download.lonk.vip/updates/ControlCommand_latest_x64.msix"
+              "url": "https://releases.lonk.vip/ControlCommand_latest_x64.msix"
             },
             {
               "name": "RCC-msix.cer",
