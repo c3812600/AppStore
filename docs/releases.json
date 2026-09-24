@@ -86,9 +86,36 @@
         "IP 白名单、指令防抖、TCP 防护",
         "待机循环视频与自动回落"
       ],
-      "latest": "1.0.0",
+      "latest": "1.1.2",
       "channel": "stable",
       "releases": [
+        {
+          "version": "1.1.2",
+          "date": "2026-09-22",
+          "channel": "stable",
+          "notes": [
+            "集成 electron-updater，启动后自动检查更新",
+            "发现新版本弹窗确认，下载后重启安装",
+            "统一授权：EPL（Ed25519）验签",
+            "play 支持 loop 参数；指令防抖与崩溃自愈"
+          ],
+          "files": [
+            {
+              "name": "E-Player-Setup-1.1.2.exe",
+              "type": "installer",
+              "label": "安装包",
+              "size": "91.9 MB",
+              "url": "https://releases.lonk.vip/e-player/1.1.2/E-Player-Setup-1.1.2.exe"
+            },
+            {
+              "name": "E-Player-1.1.2-win-x64.zip",
+              "type": "portable",
+              "label": "免安装版",
+              "size": "132 MB",
+              "url": "https://releases.lonk.vip/e-player/1.1.2/E-Player-1.1.2-win-x64.zip"
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "date": "2026-09-22",
