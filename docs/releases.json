@@ -188,9 +188,34 @@
         "Web 管理台 / 系统监控面板",
         "分辨率监控、文件同步、托盘、防多开"
       ],
-      "latest": "1.0.0",
+      "latest": "latest",
       "channel": "stable",
       "releases": [
+        {
+          "version": "latest",
+          "date": "持续更新",
+          "channel": "stable",
+          "notes": [
+            "下载按钮始终指向当前构建（固定 latest 文件名）",
+            "免安装单文件，下载后直接运行"
+          ],
+          "files": [
+            {
+              "name": "WinPilot-latest-win-x64.exe",
+              "type": "portable",
+              "label": "最新免安装版",
+              "size": "最新构建",
+              "url": "https://releases.lonk.vip/winpilot/WinPilot-latest-win-x64.exe"
+            },
+            {
+              "name": "WinPilot-latest-win-x64.zip",
+              "type": "installer",
+              "label": "最新 ZIP 包",
+              "size": "最新构建",
+              "url": "https://releases.lonk.vip/winpilot/WinPilot-latest-win-x64.zip"
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "date": "2026-09-22",
@@ -237,9 +262,27 @@
         "Basic Auth 与自定义请求头",
         "CORS，便于浏览器中控跨域操作"
       ],
-      "latest": "1.3",
+      "latest": "latest",
       "channel": "stable",
       "releases": [
+        {
+          "version": "latest",
+          "date": "持续更新",
+          "channel": "stable",
+          "notes": [
+            "下载按钮始终指向当前构建（固定 latest 文件名）",
+            "下载 ZIP 后解压得到 APK 安装"
+          ],
+          "files": [
+            {
+              "name": "NetControl-latest.zip",
+              "type": "portable",
+              "label": "最新 ZIP（内含 APK）",
+              "size": "最新构建",
+              "url": "https://releases.lonk.vip/netcontrol/NetControl-latest.zip"
+            }
+          ]
+        },
         {
           "version": "1.3",
           "date": "2026-09-21",
