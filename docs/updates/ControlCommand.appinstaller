@@ -8,7 +8,7 @@
     Publisher="CN=RCC"
     Version="2.3.14.0"
     ProcessorArchitecture="x64"
-    Uri="https://releases.lonk.vip/ControlCommand_2.3.14.0_x64.msix" />
+    Uri="https://releases.lonk.vip/controlcommand/ControlCommand_latest_x64.msix" />
   <UpdateSettings>
     <OnLaunch HoursBetweenUpdateChecks="0" ShowPrompt="true" UpdateBlocksActivation="false" />
     <AutomaticBackgroundTask />
