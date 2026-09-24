@@ -71,6 +71,7 @@ code {
 }
 .brand:hover { text-decoration: none; }
 
+.brand-logo { width: 28px; height: 28px; border-radius: 8px; display: block; }
 .brand-mark {
   width: 28px;
   height: 28px;
