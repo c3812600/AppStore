@@ -228,7 +228,7 @@
       "name": "Rust-Node",
       "alias": "RustNode",
       "category": "流程自动化",
-      "tagline": "Node-RED 风格自研工作流编辑器",
+      "tagline": "自研可视化工作流编辑器",
       "description": "可视化流程编排 + 49 种节点（网络/数据/串口/逻辑/输入输出），TCP/UDP/WebSocket/HTTP/MQTT/Modbus/串口/WOL 全协议对接，内置 AI 助手对话生成工作流，支持设备授权与多流程管理。适合展馆设备联动、工业数据采集与自动化控制。",
       "platform": "Windows x64 / Linux x86_64 / OpenWrt ARM64",
       "tech": "Rust · axum · Web UI",
