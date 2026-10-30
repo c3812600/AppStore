@@ -1,201 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RCC / ControlCommand</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #07111f;
-      --card: #0b1a2b;
-      --card-border: rgba(120, 164, 220, 0.18);
-      --text: #e8f0ff;
-      --muted: #9fb3d1;
-      --primary: #53a7ff;
-      --primary-soft: rgba(83, 167, 255, 0.14);
-      --success: #36d399;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
-      background: linear-gradient(180deg, #07111f 0%, #0a1626 100%);
-      color: var(--text);
-    }
-
-    .container {
-      width: min(960px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 48px 0 72px;
-    }
-
-    .hero {
-      padding: 28px 30px;
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      background: linear-gradient(180deg, rgba(17, 33, 55, 0.95), rgba(10, 22, 38, 0.96));
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
-    }
-
-    h1, h2 { margin: 0; }
-
-    h1 {
-      font-size: 34px;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.8;
-      max-width: 760px;
-    }
-
-    .actions, .cards {
-      display: grid;
-      gap: 16px;
-      margin-top: 22px;
-    }
-
-    .actions {
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(180deg, #4fa5ff, #318df6);
-      color: white;
-      box-shadow: 0 12px 28px rgba(49, 141, 246, 0.28);
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.02);
-      border-color: var(--card-border);
-    }
-
-    .cards {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      margin-top: 28px;
-    }
-
-    .card {
-      padding: 20px;
-      border-radius: 18px;
-      border: 1px solid var(--card-border);
-      background: rgba(10, 22, 38, 0.86);
-    }
-
-    .card h2 {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .card p, .card li {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .card ol, .card ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      margin-top: 12px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-size: 12px;
-      border: 1px solid rgba(83, 167, 255, 0.26);
-    }
-
-    code {
-      padding: 2px 6px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #d7e6ff;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 12px;
-    }
-
-    .footer {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>应用商店 · 产品发布中心</title>
+  <meta name="description" content="ControlCommand、E-Player、WinPilot、NetControl 官方下载与版本发布。" />
+  <link rel="icon" href="logos/store.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <section class="hero">
-      <h1>ControlCommand 安装与更新中心</h1>
-      <div class="subtitle">
-        这里提供首次安装、最新版本下载和证书下载入口。首次安装建议先运行安装脚本；如果需要手动安装，也可以直接下载最新的 .msix 安装包。
-      </div>
-
-      <div class="actions">
-        <a class="btn btn-primary" href="./updates/install-first-time.cmd">首次安装（推荐）</a>
-        <a class="btn btn-secondary" href="./updates/ControlCommand_latest_x64.msix">下载最新版本（.msix）</a>
-        <a class="btn btn-secondary" href="./updates/RCC-msix.cer">下载证书</a>
-        <a class="btn btn-secondary" href="./updates/ControlCommand.appinstaller">更新描述文件</a>
-      </div>
-    </section>
-
-    <section class="cards">
-      <article class="card">
-        <h2>首次安装</h2>
-        <ol>
-          <li>下载 <code>install-first-time.cmd</code>。</li>
-          <li>双击运行，或右键选择“以管理员身份运行”。</li>
-          <li>安装器会自动下载脚本、导入证书并下载安装最新版本。</li>
-        </ol>
-        <div class="pill">推荐首次安装使用</div>
-      </article>
-
-      <article class="card">
-        <h2>手动安装</h2>
-        <ol>
-          <li>先下载证书 <code>RCC-msix.cer</code> 并导入到“本地计算机”。</li>
-          <li>证书存储请选择“受信任的根证书颁发机构”或“受信任的人员”。</li>
-          <li>再点击页面上的“下载最新版本（.msix）”，双击安装即可。</li>
-        </ol>
-      </article>
-
-      <article class="card">
-        <h2>程序内更新</h2>
-        <ul>
-          <li>打开软件中的“系统设置”页面。</li>
-          <li>点击“检查更新”。</li>
-          <li>发现新版本后点击“下载更新”，下载完成后双击安装即可。</li>
-        </ul>
-      </article>
-    </section>
-
-    <div class="footer">
-      如果首次安装时遇到证书信任提示，请先下载并安装 <code>RCC-msix.cer</code>，再继续安装软件；首页的 <code>下载最新版本（.msix）</code> 按钮会始终指向当前最新构建。
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="logos/store.svg" alt="" width="28" height="28" />
+        <span>应用商店</span>
+      </a>
+      <nav class="nav">
+        <a href="controlcommand.html">ControlCommand</a>
+        <a href="e-player.html">E-Player</a>
+        <a href="winpilot.html">WinPilot</a>
+        <a href="netcontrol.html">NetControl</a>
+        <a href="rustnode.html">Rust-Node</a>
+        <a href="license.html">授权</a>
+      </nav>
     </div>
-  </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">发布中心 · 下载 · 更新</p>
+        <h1>应用商店</h1>
+        <p class="tagline">展馆 / 多屏 / 中控 产品线官方发布站。统一发布与更新检测</p>
+        <p class="tagline" id="hero-meta" style="margin-top:8px;font-family:var(--mono);font-size:13px;"></p>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>产品下载</h2>
+          <p>点击卡片进入各产品下载页，获取安装包、证书与历史版本。</p>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>应用商店</strong><span class="dim"> · 产品发布中心</span></div>
+      <div class="footer-links">
+        <a href="releases.json">releases.json</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
