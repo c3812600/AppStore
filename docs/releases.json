@@ -23,7 +23,7 @@
         "LOCAL_SCRIPT 触发本机脚本",
         "SQLite WAL + 日志轮转，离线节假日缓存"
       ],
-      "latest": "2.4.3",
+      "latest": "latest",
       "channel": "stable",
       "releases": [
         {
