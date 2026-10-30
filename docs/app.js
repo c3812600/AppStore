@@ -123,6 +123,7 @@ function renderHub(data) {
       top.append(icon, nameWrap);
 
       const meta = el("div", "product-meta");
+      if (p.badge) meta.append(el("span", "pill ok", p.badge));
       meta.append(
         el("span", "pill ok", p.latest ? `v${p.latest}` : "—"),
         el("span", "pill", p.platform || "")
@@ -174,8 +175,13 @@ function renderProduct(data) {
   const detail = el("div", "detail-hero");
 
   const heroCopy = el("div", "hero-copy");
+  const eyebrow = el("p", "eyebrow", `${product.category || ""} · ${product.platform || ""}`);
+  if (product.badge) {
+    eyebrow.append(" ");
+    eyebrow.append(el("span", "pill ok", product.badge));
+  }
   heroCopy.append(
-    el("p", "eyebrow", `${product.category || ""} · ${product.platform || ""}`),
+    eyebrow,
     el("h1", null, product.name),
     el("p", "tagline", product.tagline || ""),
     el("p", "tagline", product.description || "")

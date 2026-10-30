@@ -235,7 +235,8 @@
           "label": "NetControl 在线调试",
           "url": "https://web.lonk.vip/netcontrol"
         }
-      ]
+      ],
+      "badge": "免费"
     },
     {
       "id": "rustnode",
