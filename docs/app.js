@@ -183,6 +183,15 @@ function renderProduct(data) {
 
   const heroActions = el("div", "hero-actions");
   if (pFile) heroActions.append(renderDownloadBtn(pFile, "primary"));
+  // 在线工具外链（releases.json 的 links 字段，新窗口打开）
+  (product.links || []).forEach((lk) => {
+    const a = el("a", "btn btn-ghost");
+    a.href = lk.url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.append(el("span", "chip", lk.chip || "LINK"), el("span", null, lk.label || "打开"));
+    heroActions.append(a);
+  });
   heroCopy.append(heroActions);
 
   // QR code for APK downloads

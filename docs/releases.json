@@ -115,6 +115,13 @@
             }
           ]
         }
+      ],
+      "links": [
+        {
+          "chip": "WEB",
+          "label": "E-Player 媒体控制台（在线调试）",
+          "url": "https://web.lonk.vip/e-player"
+        }
       ]
     },
     {
@@ -220,6 +227,13 @@
               "url": "https://releases.lonk.vip/netcontrol/1.3/NetControl-1.3.zip"
             }
           ]
+        }
+      ],
+      "links": [
+        {
+          "chip": "WEB",
+          "label": "NetControl 在线调试",
+          "url": "https://web.lonk.vip/netcontrol"
         }
       ]
     },
