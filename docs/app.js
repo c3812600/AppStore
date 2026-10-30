@@ -7,6 +7,40 @@ function el(tag, className, text) {
   return node;
 }
 
+function metaKey(id) {
+  return '__r2meta__' + String(id).replace(/-/g, '_');
+}
+
+// 版本元数据：构建发布时写在产品 R2 目录的 version.js（script 标签加载，免 CORS）。
+// 商店零维护——版本号/更新时间全自动跟随构建。
+function loadProductMeta(p, cb) {
+  try {
+    const rel = getLatestRelease(p);
+    const file = primaryFile(rel);
+    if (!file || !file.url) return cb(null);
+    const u = new URL(file.url);
+    const seg = u.pathname.split('/').filter(Boolean)[0] || p.id;
+    const key = metaKey(p.id);
+    const s = document.createElement('script');
+    s.src = u.origin + '/' + seg + '/version.js?cb=' + Date.now();
+    s.onload = () => cb(window[key] || null);
+    s.onerror = () => cb(null);
+    document.head.appendChild(s);
+  } catch (e) {
+    cb(null);
+  }
+}
+
+function fmtDate(iso) {
+  try {
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return '';
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  } catch (e) {
+    return '';
+  }
+}
+
 function fileChip(type) {
   const map = {
     installer: "EXE",
@@ -124,10 +158,14 @@ function renderHub(data) {
 
       const meta = el("div", "product-meta");
       if (p.badge) meta.append(el("span", "pill ok", p.badge));
-      meta.append(
-        el("span", "pill ok", p.latest ? `v${p.latest}` : "—"),
-        el("span", "pill", p.platform || "")
-      );
+      const verPill = el("span", "pill ok", p.latest ? `v${p.latest}` : "—");
+      meta.append(verPill, el("span", "pill", p.platform || ""));
+      loadProductMeta(p, (m) => {
+        if (!m) return;
+        if (m.version) verPill.textContent = 'v' + m.version;
+        const d = fmtDate(m.updated);
+        if (d) meta.append(el('span', 'pill', '更新于 ' + d));
+      });
 
       card.append(
         top,
@@ -216,14 +254,27 @@ function renderProduct(data) {
   const side = el("aside", "side-card");
   side.append(el("h3", null, "产品信息"));
   const kv = el("div", "kv");
+  let kvVersionVal = null;
   [
     ["版本", product.latest ? `v${product.latest}` : "—"],
     ["平台", product.platform || "—"],
     ["渠道", product.channel || "stable"],
   ].forEach(([k, v]) => {
     const row = el("div", "kv-row");
-    row.append(el("span", "kv-k", k), el("span", "kv-v", v));
+    const val = el("span", "kv-v", v);
+    if (k === '版本') kvVersionVal = val;
+    row.append(el("span", "kv-k", k), val);
     kv.append(row);
+  });
+  loadProductMeta(product, (m) => {
+    if (!m) return;
+    if (m.version && kvVersionVal) kvVersionVal.textContent = 'v' + m.version;
+    const d = fmtDate(m.updated);
+    if (d) {
+      const row = el('div', 'kv-row');
+      row.append(el('span', 'kv-k', '更新'), el('span', 'kv-v', d));
+      kv.append(row);
+    }
   });
   side.append(kv);
 
