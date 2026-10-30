@@ -2,8 +2,7 @@
   "site": {
     "name": "lonk apps",
     "tagline": "展馆 / 多屏 / 中控 产品发布中心",
-    "download_base": "https://download.lonk.vip",
-    "license_admin": "https://licenses.lonk.vip/admin"
+    "download_base": "https://download.lonk.vip"
   },
   "products": [
     {
