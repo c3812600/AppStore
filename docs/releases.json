@@ -121,60 +121,6 @@
               "url": "https://releases.lonk.vip/e-player/E-Player-latest-win-x64.zip"
             }
           ]
-        },
-        {
-          "version": "1.1.2",
-          "date": "2026-09-22",
-          "channel": "stable",
-          "notes": [
-            "集成 electron-updater，启动后自动检查更新",
-            "发现新版本弹窗确认，下载后重启安装",
-            "统一授权：EPL（Ed25519）验签",
-            "play 支持 loop 参数；指令防抖与崩溃自愈"
-          ],
-          "files": [
-            {
-              "name": "E-Player-Setup-1.1.2.exe",
-              "type": "installer",
-              "label": "安装包",
-              "size": "91.9 MB",
-              "url": "https://releases.lonk.vip/e-player/1.1.2/E-Player-Setup-1.1.2.exe"
-            },
-            {
-              "name": "E-Player-1.1.2-win-x64.zip",
-              "type": "portable",
-              "label": "免安装版",
-              "size": "132 MB",
-              "url": "https://releases.lonk.vip/e-player/1.1.2/E-Player-1.1.2-win-x64.zip"
-            }
-          ]
-        },
-        {
-          "version": "1.0.0",
-          "date": "2026-09-22",
-          "channel": "stable",
-          "notes": [
-            "统一授权：EPL（Ed25519）验签，移除旧 AES 格式",
-            "play 支持 loop 参数，指定视频可循环",
-            "窗口重建不覆盖用户 play 指令",
-            "500ms 指令防抖；GPU/渲染崩溃自愈"
-          ],
-          "files": [
-            {
-              "name": "E-Player-Setup-1.0.0.exe",
-              "type": "installer",
-              "label": "安装包",
-              "size": "91.9 MB",
-              "url": "https://releases.lonk.vip/e-player/1.0.0/E-Player-Setup-1.0.0.exe"
-            },
-            {
-              "name": "E-Player-1.0.0-win-x64.zip",
-              "type": "portable",
-              "label": "免安装版",
-              "size": "131.7 MB",
-              "url": "https://releases.lonk.vip/e-player/1.0.0/E-Player-1.0.0-win-x64.zip"
-            }
-          ]
         }
       ]
     },
@@ -220,33 +166,6 @@
               "label": "最新 ZIP 包",
               "size": "最新构建",
               "url": "https://releases.lonk.vip/winpilot/WinPilot-latest-win-x64.zip"
-            }
-          ]
-        },
-        {
-          "version": "1.0.0",
-          "date": "2026-09-22",
-          "channel": "stable",
-          "notes": [
-            "免安装单文件，下载后直接运行 WinPilot-1.0.0-win-x64.exe",
-            "优化授权机器码采集并修复状态覆盖逻辑",
-            "WebRTC 远程桌面与远程窗口控制",
-            "自启动编排与网络命令控制"
-          ],
-          "files": [
-            {
-              "name": "WinPilot-1.0.0-win-x64.exe",
-              "type": "portable",
-              "label": "免安装版",
-              "size": "127.4 MB",
-              "url": "https://releases.lonk.vip/winpilot/1.0.0/WinPilot-1.0.0-win-x64.exe"
-            },
-            {
-              "name": "WinPilot-1.0.0-win-x64.zip",
-              "type": "installer",
-              "label": "ZIP 包",
-              "size": "126.5 MB",
-              "url": "https://releases.lonk.vip/winpilot/1.0.0/WinPilot-1.0.0-win-x64.zip"
             }
           ]
         }
@@ -306,25 +225,6 @@
               "label": "ZIP（内含 APK）",
               "size": "3.95 MB",
               "url": "https://releases.lonk.vip/netcontrol/1.3/NetControl-1.3.zip"
-            }
-          ]
-        },
-        {
-          "version": "1.2",
-          "date": "2026-08-01",
-          "channel": "stable",
-          "notes": [
-            "Chrome 私网 CORS 修复",
-            "中文 URL 编码修复",
-            "POST body UTF-8 更稳"
-          ],
-          "files": [
-            {
-              "name": "NetControl-1.2.zip",
-              "type": "portable",
-              "label": "ZIP（内含 APK）",
-              "size": "约 5 MB",
-              "url": "https://releases.lonk.vip/netcontrol/1.2/NetControl-1.2.zip"
             }
           ]
         }
