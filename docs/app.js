@@ -56,7 +56,7 @@ function fileChip(type) {
 
 function renderDownloadBtn(file, variant) {
   const a = el("a", `btn ${variant === "primary" ? "btn-primary" : "btn-ghost"}`);
-  a.href = file.url;
+  a.href = file.url + (~file.url.indexOf('?') ? '&' : '?') + 'cb=' + Date.now();
   const chip = el("span", "chip", fileChip(file.type));
   a.append(chip, el("span", null, file.label || "下载"));
   return a;
@@ -241,7 +241,7 @@ function renderProduct(data) {
   // QR code for APK downloads
   if (product.id === "netcontrol" && pFile) {
     const qrWrap = el("div", "qr-download");
-    const qrCanvas = generateQR(pFile.url);
+    const qrCanvas = generateQR(pFile.url + (~pFile.url.indexOf('?') ? '&' : '?') + 'cb=' + Date.now());
     if (qrCanvas) {
       qrCanvas.className = "qr-canvas";
       qrWrap.append(qrCanvas, el("div", "qr-label", "手机扫码下载 APK"));
