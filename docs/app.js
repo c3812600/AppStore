@@ -162,7 +162,7 @@ function renderHub(data) {
       meta.append(verPill, el("span", "pill", p.platform || ""));
       loadProductMeta(p, (m) => {
         if (!m) return;
-        if (m.version) verPill.textContent = 'v' + m.version;
+        if (m.version) verPill.textContent = String(m.version);
         const d = fmtDate(m.updated);
         if (d) meta.append(el('span', 'pill', '更新于 ' + d));
       });
@@ -268,7 +268,7 @@ function renderProduct(data) {
   });
   loadProductMeta(product, (m) => {
     if (!m) return;
-    if (m.version && kvVersionVal) kvVersionVal.textContent = 'v' + m.version;
+    if (m.version && kvVersionVal) kvVersionVal.textContent = String(m.version);
     const d = fmtDate(m.updated);
     if (d) {
       const row = el('div', 'kv-row');
