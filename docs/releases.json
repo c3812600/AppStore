@@ -229,6 +229,61 @@
           ]
         }
       ]
+    },
+    {
+      "id": "rustnode",
+      "name": "Rust-Node",
+      "alias": "RustNode",
+      "category": "流程自动化",
+      "tagline": "Node-RED 风格自研工作流编辑器",
+      "description": "可视化流程编排 + 49 种节点（网络/数据/串口/逻辑/输入输出），TCP/UDP/WebSocket/HTTP/MQTT/Modbus/串口/WOL 全协议对接，内置 AI 助手对话生成工作流，支持设备授权与多流程管理。适合展馆设备联动、工业数据采集与自动化控制。",
+      "platform": "Windows x64 / Linux x86_64 / OpenWrt ARM64",
+      "tech": "Rust · axum · Web UI",
+      "repo": "https://github.com/c3812600/Rust-Node",
+      "docs_note": "服务默认端口 54321（.env 可改）；Linux/OpenWrt 为 musl 静态包，OpenWrt 解压后 sh install.sh 一键安装。",
+      "features": [
+        "可视化流程编辑：拖拽连线、插入中间节点、撤销重做、多流程 Tab",
+        "49 种节点：TCP/UDP/WebSocket/HTTP/MQTT/Modbus/串口/WOL/定时/模板…",
+        "AI 助手：对话生成工作流草稿，全量校验后一键采纳",
+        "三平台分发：Windows 安装包 / Linux 服务器版 / OpenWrt 软路由版",
+        "设备授权 + 本地数据自持，12 小时登录保持"
+      ],
+      "latest": "latest",
+      "channel": "stable",
+      "releases": [
+        {
+          "version": "latest",
+          "date": "持续更新",
+          "channel": "stable",
+          "notes": [
+            "下载按钮始终指向当前构建（固定 latest 文件名）",
+            "Windows 为安装包；Linux/OpenWrt 为免安装静态包（解压即用）"
+          ],
+          "files": [
+            {
+              "name": "RustNode-Setup-latest.exe",
+              "type": "installer",
+              "label": "Windows 安装包",
+              "size": "最新构建",
+              "url": "https://releases.lonk.vip/rustnode/RustNode-Setup-latest.exe"
+            },
+            {
+              "name": "RustNode-latest-linux-x86_64.tar.gz",
+              "type": "portable",
+              "label": "Linux x86_64 服务器版",
+              "size": "最新构建",
+              "url": "https://releases.lonk.vip/rustnode/RustNode-latest-linux-x86_64.tar.gz"
+            },
+            {
+              "name": "RustNode-latest-linux-aarch64.tar.gz",
+              "type": "portable",
+              "label": "OpenWrt ARM64 软路由版",
+              "size": "最新构建",
+              "url": "https://releases.lonk.vip/rustnode/RustNode-latest-linux-aarch64.tar.gz"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
