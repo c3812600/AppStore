@@ -65,6 +65,35 @@ function fileChip(type) {
   return map[type] || "FILE";
 }
 
+function renderInstallCmds(product) {
+  const wrap = document.createDocumentFragment();
+  (product.install_cmds || []).forEach((ic) => {
+    const box = el("div", "install-cmd");
+    const head = el("div", "install-cmd-head");
+    head.append(el("span", "chip", ic.chip || "命令"), el("span", "install-cmd-label", ic.label || "一键安装"));
+    const row = el("div", "install-cmd-row");
+    const code = el("code", "install-cmd-text", ic.cmd || "");
+    const btn = el("button", "install-copy", "复制");
+    btn.type = "button";
+    btn.onclick = () => {
+      const done = () => {
+        btn.textContent = "已复制";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = "复制"; btn.classList.remove("ok"); }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ic.cmd).then(done).catch(() => fallbackCopy(ic.cmd, done));
+      } else {
+        fallbackCopy(ic.cmd, done);
+      }
+    };
+    row.append(code, btn);
+    box.append(head, row);
+    wrap.append(box);
+  });
+  return wrap;
+}
+
 function renderDownloadBtn(file, variant) {
   const a = el("a", `btn ${variant === "primary" ? "btn-primary" : "btn-ghost"}`);
   a.href = file.url + (~file.url.indexOf('?') ? '&' : '?') + 'cb=' + Date.now();
@@ -249,32 +278,6 @@ function renderProduct(data) {
   });
   heroCopy.append(heroActions);
 
-  // 一键安装命令（releases.json 的 install_cmds 字段：命令框 + 复制按钮）
-  (product.install_cmds || []).forEach((ic) => {
-    const box = el("div", "install-cmd");
-    const head = el("div", "install-cmd-head");
-    head.append(el("span", "chip", ic.chip || "命令"), el("span", "install-cmd-label", ic.label || "一键安装"));
-    const row = el("div", "install-cmd-row");
-    const code = el("code", "install-cmd-text", ic.cmd || "");
-    const btn = el("button", "install-copy", "复制");
-    btn.type = "button";
-    btn.onclick = () => {
-      const done = () => {
-        btn.textContent = "已复制";
-        btn.classList.add("ok");
-        setTimeout(() => { btn.textContent = "复制"; btn.classList.remove("ok"); }, 1500);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(ic.cmd).then(done).catch(() => fallbackCopy(ic.cmd, done));
-      } else {
-        fallbackCopy(ic.cmd, done);
-      }
-    };
-    row.append(code, btn);
-    box.append(head, row);
-    heroCopy.append(box);
-  });
-
   // QR code for APK downloads
   if (product.id === "netcontrol" && pFile) {
     const qrWrap = el("div", "qr-download");
@@ -353,6 +356,8 @@ function renderProduct(data) {
     latestCard.append(el("div", "empty", "暂无下载"));
   }
   dlInner.append(dlHead, latestCard);
+  // 一键安装命令卡（全宽放命令区：一行放下不折行；releases.json 的 install_cmds 驱动）
+  dlInner.append(renderInstallCmds(product));
   dlSection.append(dlInner);
 
   // ---- History ----

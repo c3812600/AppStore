@@ -575,7 +575,7 @@ code {
 }
 
 /* 一键安装命令框（releases.json install_cmds：命令 + 复制按钮） */
-.install-cmd { margin-top: 18px; max-width: 640px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; }
+.install-cmd { margin-top: 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
 .install-cmd-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .install-cmd-label { color: var(--text-dim); font-size: 13px; }
 .install-cmd-row { display: flex; align-items: center; gap: 10px; }
