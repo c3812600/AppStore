@@ -1,5 +1,16 @@
 const DATA_URL = "releases.json";
 
+function fallbackCopy(text, done) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); done(); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -237,6 +248,32 @@ function renderProduct(data) {
     heroActions.append(a);
   });
   heroCopy.append(heroActions);
+
+  // 一键安装命令（releases.json 的 install_cmds 字段：命令框 + 复制按钮）
+  (product.install_cmds || []).forEach((ic) => {
+    const box = el("div", "install-cmd");
+    const head = el("div", "install-cmd-head");
+    head.append(el("span", "chip", ic.chip || "命令"), el("span", "install-cmd-label", ic.label || "一键安装"));
+    const row = el("div", "install-cmd-row");
+    const code = el("code", "install-cmd-text", ic.cmd || "");
+    const btn = el("button", "install-copy", "复制");
+    btn.type = "button";
+    btn.onclick = () => {
+      const done = () => {
+        btn.textContent = "已复制";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = "复制"; btn.classList.remove("ok"); }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ic.cmd).then(done).catch(() => fallbackCopy(ic.cmd, done));
+      } else {
+        fallbackCopy(ic.cmd, done);
+      }
+    };
+    row.append(code, btn);
+    box.append(head, row);
+    heroCopy.append(box);
+  });
 
   // QR code for APK downloads
   if (product.id === "netcontrol" && pFile) {
