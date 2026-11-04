@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AppInstaller
   xmlns="http://schemas.microsoft.com/appx/appinstaller/2018"
-  Uri="https://download.lonk.vip/updates/ControlCommand.appinstaller"
-  Version="2.4.41.0">
+  Uri="https://releases.lonk.vip/controlcommand/ControlCommand.appinstaller"
+  Version="2.4.43.0">
   <MainPackage
     Name="RCC.ControlCommand"
     Publisher="CN=RCC"
-    Version="2.4.41.0"
+    Version="2.4.43.0"
     ProcessorArchitecture="x64"
     Uri="https://releases.lonk.vip/controlcommand/ControlCommand_latest_x64.msix" />
   <UpdateSettings>
