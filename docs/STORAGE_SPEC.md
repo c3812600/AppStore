@@ -42,7 +42,7 @@ releases/
     WinPilot-latest-x64.msix           # MSIX 安装包（latest 别名）
     WinPilot.appinstaller              # 自动更新源（指向上面 msix）
     version.js
-  nodes/                     # Rust-Node 节点商店（独立于产品）
+  rustnode/nodes/            # Rust-Node 节点商店（在 rustnode/ 产品目录下，per-product）
     index.json                         # 节点索引
     <node>/<node>-<ver>.npk + .npk.sig # 节点包 + 签名
 ```
@@ -69,7 +69,7 @@ releases/
 | 更新源 | `<Product>.appinstaller` / `latest.yml` | `WinPilot.appinstaller` |
 | 版本元数据 | `version.js` | `winpilot/version.js` |
 | 校验 | `hashes/<plat>.json` | `rustnode/hashes/win-x64.json` |
-| 节点包 | `nodes/<node>/<node>-<ver>.npk(.sig)` | `nodes/code/code-0.1.1.npk` |
+| 节点包 | `rustnode/nodes/<node>/<node>-<ver>.npk(.sig)` | `rustnode/nodes/code/code-0.1.1.npk` |
 
 ## 五、禁止 / 清理
 
