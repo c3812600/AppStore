@@ -207,25 +207,6 @@
        "url": "https://releases.lonk.vip/netcontrol/NetControl-latest.zip"
       }
      ]
-    },
-    {
-     "version": "1.3",
-     "date": "2026-09-21",
-     "channel": "stable",
-     "notes": [
-      "下载 ZIP 后解压得到 APK 安装",
-      "新增 GET/POST /api/refresh，按需刷新（可清缓存）",
-      "无定时自动刷新，避免打断展示"
-     ],
-     "files": [
-      {
-       "name": "NetControl-1.3.zip",
-       "type": "portable",
-       "label": "ZIP（内含 APK）",
-       "size": "3.95 MB",
-       "url": "https://releases.lonk.vip/netcontrol/1.3/NetControl-1.3.zip"
-      }
-     ]
     }
    ],
    "links": [
