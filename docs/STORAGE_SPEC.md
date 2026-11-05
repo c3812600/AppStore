@@ -39,8 +39,11 @@ releases/
   winpilot/                  # WinPilot
     WinPilot-latest-win-x64.exe
     WinPilot-latest-win-x64.zip
-    WinPilot-latest-x64.msix           # MSIX 安装包（latest 别名）
+    WinPilot_latest_x64.msix           # MSIX 安装包（latest 别名；对象名与 appinstaller Uri 一致，下划线）
     WinPilot.appinstaller              # 自动更新源（指向上面 msix）
+    install-first-time.cmd             # 首次安装脚本入口（下载并运行 ps1）
+    install-first-time.ps1             # 首次自动安装（导入证书→按 appinstaller 装 MSIX→桌面快捷方式）
+    WinPilot-msix.cer                  # 签名证书（与 MSIX 签名块一致，CN=WinPilot）
     version.js
   rustnode/nodes/            # Rust-Node 节点商店（在 rustnode/ 产品目录下，per-product）
     index.json                         # 节点索引

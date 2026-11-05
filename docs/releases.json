@@ -130,9 +130,9 @@
    "tagline": "分布式自启动与控制系统",
    "description": "程序延迟启动、网络命令控制、远程窗口、WebRTC 远程桌面、分辨率监控与系统托盘管理。适合作为展馆终端的常驻自启服务。",
    "platform": "Windows 10/11",
-   "tech": "Python · PyInstaller",
+   "tech": "Python · PyInstaller · MSIX",
    "repo": "https://github.com/c3812600/WinPilot",
-   "docs_note": "Web 控制台默认端口 34301，远程桌面 /viewer。",
+   "docs_note": "MSIX 从 releases.lonk.vip/winpilot 下载；appinstaller / 证书 / 安装脚本同在 winpilot/ 产品目录（per-product 自包含）。Web 控制台默认端口 34301，远程桌面 /viewer。",
    "features": [
     "多程序延迟启动 / 自动启动目录最新文件",
     "TCP/UDP Server/Client 分布式控制",
@@ -148,23 +148,38 @@
      "date": "持续更新",
      "channel": "stable",
      "notes": [
-      "下载按钮始终指向当前构建（固定 latest 文件名）",
-      "免安装单文件，下载后直接运行"
+      "下载按钮指向当前可用安装源",
+      "支持程序内自动检查更新（AppInstaller）",
+      "首次安装推荐使用一键安装脚本（自动导入证书）"
      ],
      "files": [
       {
-       "name": "WinPilot-latest-win-x64.exe",
-       "type": "portable",
-       "label": "最新免安装版",
-       "size": "最新构建",
-       "url": "https://releases.lonk.vip/winpilot/WinPilot-latest-win-x64.exe"
+       "name": "install-first-time.cmd",
+       "type": "script",
+       "label": "首次安装",
+       "size": "脚本",
+       "url": "https://releases.lonk.vip/winpilot/install-first-time.cmd"
       },
       {
-       "name": "WinPilot-latest-win-x64.zip",
+       "name": "WinPilot_latest_x64.msix",
        "type": "installer",
-       "label": "最新 ZIP 包",
+       "label": "最新 .msix",
        "size": "最新构建",
-       "url": "https://releases.lonk.vip/winpilot/WinPilot-latest-win-x64.zip"
+       "url": "https://releases.lonk.vip/winpilot/WinPilot_latest_x64.msix"
+      },
+      {
+       "name": "WinPilot-msix.cer",
+       "type": "cert",
+       "label": "安装证书",
+       "size": "证书",
+       "url": "https://releases.lonk.vip/winpilot/WinPilot-msix.cer"
+      },
+      {
+       "name": "WinPilot.appinstaller",
+       "type": "meta",
+       "label": "更新描述文件",
+       "size": "appinstaller",
+       "url": "https://releases.lonk.vip/winpilot/WinPilot.appinstaller"
       }
      ]
     }
